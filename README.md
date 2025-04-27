@@ -1,4 +1,3 @@
-
 # Código Profissional - Correção Automatizada de Projetos
 
 Este projeto é um **agente automático de reestruturação de código**, que analisa todos os arquivos de um projeto, gera correções baseadas em boas práticas profissionais e permite aplicar as melhorias de forma controlada.
@@ -17,20 +16,20 @@ Este projeto é um **agente automático de reestruturação de código**, que an
 - `config/` → Configurações de ambiente.
 
 ## Como usar
+
 1. Instale as dependências:
    ```bash
    pip install -r requirements.txt
    ```
 
-2. Configure o arquivo `.env` com:
-   ```
-   OPENAI_API_KEY=sua-chave-da-openai
-   OPENAI_MODEL=gpt-4o
-   BACKUP_FOLDER=./backups
-   EXTENSIONS_VALIDAS=.py
+2. Copie o arquivo `.env.example` para `.env`:
+   ```bash
+   cp .env.example .env
    ```
 
-3. Rode o projeto:
+3. Preencha a variável `OPENAI_API_KEY` no `.env` com sua chave da OpenAI.
+
+4. Rode o projeto:
    ```bash
    python main.py
    ```
@@ -40,6 +39,7 @@ Este projeto é um **agente automático de reestruturação de código**, que an
 - Conta na OpenAI com acesso à API de modelos
 
 ## Observações
+- O arquivo `.env` está protegido no `.gitignore`, mas o `.env.example` é público para ajudar na configuração.
 - O backup dos arquivos corrigidos é salvo automaticamente.
 - Suporte nativo para projetos em Python, mas pode ser adaptado para outras linguagens.
 
