@@ -1,0 +1,75 @@
+
+- Aplique o padrão PSR-12 de formatação, indentação e espaçamento.
+- Nomeie funções, variáveis e classes com nomes claros e padronizados.
+- Use camelCase para métodos e snake_case para variáveis simples.
+- Remova códigos comentados, obsoletos ou não utilizados.
+- Adicione PHPDoc (comentários /** */) para todas funções públicas e classes.
+- Corrija todos os IFs, ELSEs, FOREACHs, WHILEs, SWITCHs e TRY/CATCHs mal fechados.
+- Garanta que todo arquivo PHP inicie com '<?php' e não tenha espaços antes disso.
+- Nunca feche o arquivo com '?>' se for somente PHP.
+- Em métodos contendo HTML, utilize 'ob_start()' e 'ob_get_clean()' ou 'echo' corretamente.
+- Para projetos WordPress:
+    - Proteja todos os arquivos com 'if (!defined('ABSPATH')) { exit; }'.
+    - Use hooks WordPress: add_action, add_filter, do_action, apply_filters corretamente.
+    - Sanitize TODAS as entradas ($_POST, $_GET, $_REQUEST, $_FILES) usando sanitize_text_field, sanitize_email, sanitize_key, wp_kses_post.
+    - Escape TODAS as saídas usando esc_html, esc_attr, esc_url.
+    - Use check_ajax_referer obrigatoriamente em chamadas AJAX.
+    - Sempre finalize callbacks AJAX com wp_send_json_success() ou wp_send_json_error().
+    - Para criar tabelas, use $wpdb, $wpdb->get_charset_collate() e dbDelta($sql) corretamente.
+    - Valide todas as queries dinâmicas com $wpdb->prepare().
+    - Nunca use SELECT * em consultas: sempre especifique campos.
+    - Valide e trate o resultado de queries antes de usar.
+    - Use current_user_can() e is_user_logged_in() para proteção de ações sensíveis.
+    - Para uploads, use wp_handle_upload e valide MIME types.
+    - Se criar CPTs, use register_post_type com todos os argumentos necessários.
+    - Se criar taxonomias, use register_taxonomy corretamente.
+    - Se usar meta dados, valide e sanitize com get_post_meta/update_post_meta.
+    - Ao criar opções, use add_option/get_option/update_option com validação.
+    - Para APIs externas, use wp_remote_get/wp_remote_post com verificação de erros.
+    - Para REST API, use register_rest_route, valide requests e escape responses.
+    - Use transientes para cache (set_transient/get_transient) com prefixos seguros.
+    - Utilize constantes para textos de domínio e traduza com __(), _e().
+    - Se criar shortcodes, sanitize todos os atributos e retorne conteúdo seguro.
+    - Para campos de formulários, sanitize e escape antes de salvar e antes de exibir.
+    - Ao enviar e-mails, use wp_mail() e sanitize todos os campos.
+    - Ao registrar scripts e estilos, use wp_enqueue_script e wp_enqueue_style corretamente.
+    - Ao usar TinyMCE no Admin, sanitize entradas e saídas de conteúdo.
+    - No Admin, sempre use nonce para proteger ações customizadas.
+    - No frontend, valide campos antes de enviar.
+    - Proteja upload de arquivos bloqueando extensões perigosas (.php, .exe, etc).
+    - Para autenticação OAuth2, valide e sanitize todos os tokens.
+    - Use WP_Query para buscar posts, evite consultas diretas sempre que possível.
+    - Ao trabalhar com cron jobs, use wp_schedule_event corretamente e valide horários.
+    - Para multisite, valide o blog_id atual.
+    - Garanta que migrations, se necessárias, sejam executadas com segurança.
+    - Em API externa, implemente retries automáticos em caso de falha.
+    - Se envolver pagamentos, valide assinaturas de webhook, verifique status de retorno.
+    - Modularize: separe funções em arquivos pequenos e coesos.
+    - Garanta carregamento automático de classes (autoload PSR-4 se possível).
+    - Em sistemas grandes, implemente namespaces adequadamente.
+    - Evite funções globais; prefira métodos encapsulados.
+    - Nunca exponha stacktraces ou mensagens de erro sensíveis.
+    - Implemente logs de erro controlados usando error_log ou plugins.
+    - Em API customizada, verifique permissões (capabilities) nos endpoints.
+    - Sempre verifique a integridade dos arquivos baixados por API.
+    - Faça fallback se wp_remote_get falhar.
+    - Em REST API, use register_meta() para expor campos customizados.
+    - Use filter_var($email, FILTER_VALIDATE_EMAIL) além de sanitize_email.
+    - Se enviar grandes uploads, trate upload_max_filesize e post_max_size.
+    - Se usar composer, valide todas as dependências no composer.json.
+    - Se implementar plugins, adicione readme.txt com descrição e versões corretas.
+    - Se envolver internacionalização, use TextDomain corretamente.
+    - Se manipular cron jobs, remova eventos antigos no uninstall.
+    - Ao trabalhar com cache (transient ou object cache), valide expiração e atualize corretamente.
+    - Para queries lentas, implemente cache local ou paginador.
+    - Garanta que toda API externa esteja documentada.
+    - Se usar OAuth2, implemente refresh_token automático.
+    - Em sistemas pesados, use as_notifier hooks para async processing.
+    - Não use superglobals diretamente sem validar.
+    - Se usar wp_nonce_field() em formulários, verifique com check_admin_referer().
+    - Se necessário, utilize REST API authentication via OAuth2/Bearer Token.
+    - Teste regressivamente após grandes alterações.
+    - Realize sanitização DUPLA (entrada + saída) em campos críticos.
+    - Após corrigir, teste fluxos completos (Admin, Ajax, Frontend, API).
+    - Finalize testando responsividade de templates se alterados.
+    - Garanta retrocompatibilidade de funções e APIs internas se possível.
