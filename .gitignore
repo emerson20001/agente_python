@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv/
+env/
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+
+# VSCode settings
+.vscode/
+
+# Log files
+*.log
+
+# Python specific
+*.pyo
+*.pyd
+.Python
+
+# Ignore suggestion files
+*.suggestion.txt
