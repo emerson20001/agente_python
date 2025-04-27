@@ -30,3 +30,8 @@ Thumbs.db
 
 # Ignore suggestion files
 *.suggestion.txt
+
+# Backup files
+*.bak
+*.backup
+backups/

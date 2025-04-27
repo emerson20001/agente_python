@@ -6,6 +6,8 @@ from services.openai_client import OpenAIClient
 from services.backup_service import BackupService
 from services.correction_planner import CorrectionPlanner
 from utils.logger import print_info, print_warning, print_error
+from utils.api_validator import validar_openai_api_key
+from config.config import OPENAI_API_KEY
 import os
 
 def detect_language(text: str) -> str:
@@ -124,6 +126,11 @@ def process_file(file, planner, openai_client, backup_service, global_context, l
 
 def main():
     print_info("\n Agente Profissional de Correção de Código ")
+
+    # Validação da chave da OpenAI
+    if not validar_openai_api_key(OPENAI_API_KEY):
+        print_error("\nEncerrando o programa devido a chave inválida.")
+        exit(1)
 
     folder_path = input("\nDigite o caminho completo da pasta do projeto: ").strip()
 
