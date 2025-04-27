@@ -1,7 +1,14 @@
 # config/config.py
 
 import os
-from dotenv import load_dotenv
+
+try:
+    from dotenv import load_dotenv
+except ModuleNotFoundError:
+    print("\n Biblioteca 'python-dotenv' não encontrada.")
+    print(" Execute o comando abaixo para instalar:")
+    print("\n    pip install python-dotenv\n")
+    exit(1)
 
 # Carrega as variáveis do arquivo .env
 load_dotenv()

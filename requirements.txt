@@ -1,1 +1,7 @@
+# Dependências do projeto
+
+# Biblioteca para fazer requisições HTTP (usada para comunicação com a API da OpenAI)
 requests
+
+# Biblioteca para carregar variáveis de ambiente a partir do arquivo .env
+python-dotenv
